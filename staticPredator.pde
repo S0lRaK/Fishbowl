@@ -15,15 +15,25 @@ class StaticPredator
   }
   
   // Methods
+  void displayMenu()
+  {
+    imgStaticPredator.resize(width/15, height/15);
+    image(imgStaticPredator, menuX, menuY); 
+  }
+  
   void display()
   {
     imgStaticPredator.resize(width/15, height/15);
     image(imgStaticPredator, posX, posY);
   }
   
-  void displayMenu()
+  void addPredator()
   {
-    imgStaticPredator.resize(width/15, height/15);
-    image(imgStaticPredator, menuX, menuY); 
+    Environment.staticPredators.add(sPred);
+    for(byte i = 0; i < Environment.staticPredators.size(); i++)
+    {
+      StaticPredator sPred = Environment.staticPredators.get(i);
+      sPred.display();
+    }
   }
 }
